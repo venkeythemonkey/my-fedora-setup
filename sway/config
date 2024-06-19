@@ -10,9 +10,9 @@
 set $mod Mod4
 # Home row direction keys, like vim
 set $left h
-set $down l
+set $down j
 set $up k
-set $right j
+set $right l
 # Your preferred terminal emulator
 # Recommends: foot
 set $term foot
@@ -25,9 +25,9 @@ set $rofi_cmd rofi \
 # Shows a combined list of the applications with desktop files and
 # executables from PATH.
 # TODO: add window with the next release of rofi-wayland
-#set $menu $rofi_cmd -show combi -combi-modes drun#run -modes combi
 set $menu $rofi_cmd -show combi -combi-modes drun#run -modes combi
 bindsym $mod+Tab exec $rofi_cmd -show window -modi window
+
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
@@ -40,9 +40,6 @@ output * bg /home/venkatesh/Pictures/wallpaper.jpg fill
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
-
-#output eDP-1 resolution 1920x1200
-#output HDMI-A-1 resolution 1920x1080 position 0,-1400
 
 ### Idle configuration
 #
@@ -68,15 +65,13 @@ output * bg /home/venkatesh/Pictures/wallpaper.jpg fill
 #       middle_emulation enabled
 #   }
 #
+
+input "1739:52828:SYNA8020:00_06CB:CE5C_Touchpad" {
+       tap enabled
+       natural_scroll enabled
+}
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
-
-
-input "SYNA8020:00 06CB:CE5C Touchpad" {
-    natural_scroll disabled
-   }
-
-
 
 ### Key bindings
 #
@@ -200,22 +195,35 @@ mode "resize" {
     # right will grow the containers width
     # up will shrink the containers height
     # down will grow the containers height
-    bindsym $left resize shrink width 10px
-    bindsym $down resize grow height 10px
-    bindsym $up resize shrink height 10px
-    bindsym $right resize grow width 10px
+    bindsym $left resize shrink width 20px
+    bindsym $down resize grow height 20px
+    bindsym $up resize shrink height 20px
+    bindsym $right resize grow width 20px
 
     # Ditto, with arrow keys
-    bindsym Left resize shrink width 10px
-    bindsym Down resize grow height 10px
-    bindsym Up resize shrink height 10px
-    bindsym Right resize grow width 10px
+    bindsym Left resize shrink width 20px
+    bindsym Down resize grow height 20px
+    bindsym Up resize shrink height 20px
+    bindsym Right resize grow width 20px
 
     # Return to default mode
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
+
+set $gnome-schema org.gnome.desktop.interface
+
+exec_always {
+     gsettings set $gnome-schema color-scheme 'prefer-dark'
+     gsettings set $gnome-schema gtk-theme 'Adwaita-dark'
+#    gsettings set $gnome-schema icon-theme 'Your icon theme'
+#    gsettings set $gnome-schema cursor-theme 'Your cursor Theme'
+#    gsettings set $gnome-schema font-name 'Your font name'
+}
+
+
+assign [class=Brave-browser] workspace number 2 
 
 # Include configs from 3 locations:
 #  - /usr/share/sway/config.d
@@ -239,3 +247,6 @@ bindsym $mod+r mode "resize"
 # the trick, it's all in the `wordexp(3)`.
 #
 include '$(/usr/libexec/sway/layered-include "/usr/share/sway/config.d/*.conf" "/etc/sway/config.d/*.conf" "${XDG_CONFIG_HOME:-$HOME/.config}/sway/config.d/*.conf")'
+
+
+
