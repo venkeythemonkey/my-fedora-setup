@@ -224,7 +224,8 @@ exec_always {
 }
 
 #Assign apps to particular workspace
-assign [class=Brave-browser] workspace number 2 
+# assign [class=Brave-browser] workspace number 2 
+assign [app_id=firefox] workspace number 2 
 
 #Capture using flameshot
 bindsym $mod+Print exec flameshot gui

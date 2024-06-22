@@ -9,5 +9,11 @@ sudo dnf swap mesa-va-drivers mesa-va-drivers-freeworld
 sudo dnf swap mesa-vdpau-drivers mesa-vdpau-drivers-freeworld
 
 
-sudo dnf install vim power-profiles-daemon fzf ripgrep xarchiver fastfetch btop flatpak git powerstat libmtp gvfs-mtp flameshot podman distrobox
+sudo dnf install vim power-profiles-daemon fzf ripgrep xarchiver fastfetch btop flatpak git powerstat libmtp gvfs-mtp flameshot podman distrobox java-17-openjdk-devel golang rustup neovim mysql-server mycli fd-find entr alacritty
+
+
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+flatpak install telegram vlc qbit shotwell
+
+
 
