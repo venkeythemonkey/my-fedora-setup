@@ -1,0 +1,3 @@
+# Watches the file and execute command on file change
+echo "Main.java" | entr sh -c 'clear; java Main.java'
+
