@@ -10,7 +10,7 @@ sudo dnf swap mesa-vdpau-drivers mesa-vdpau-drivers-freeworld
 
 
 # Packages that i use
-sudo dnf install vim fzf ripgrep xarchiver fastfetch btop flatpak git libmtp gvfs-mtp flameshot java-21-openjdk-devel golang rustup neovim fd-find entr qbittorrent qt6ct kvantum zsh bat
+sudo dnf install vim fzf ripgrep xarchiver fastfetch btop flatpak git libmtp gvfs-mtp flameshot java-21-openjdk-devel golang rustup neovim fd-find entr qbittorrent qt6ct kvantum zsh bat tuned
 
 
 # Install docker
